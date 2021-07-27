@@ -45,6 +45,7 @@ func (cfg *producerBuilder) Topic(value string) *producerBuilder {
 	cfg.topic = value
 	return cfg
 }
+
 func (cfg *producerBuilder) Tag(value string) *producerBuilder {
 	cfg.tag = value
 	return cfg
