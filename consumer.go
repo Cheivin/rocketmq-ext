@@ -98,7 +98,7 @@ func (c *rocketMQConsumer) handleOne(messageEntry mq_http_sdk.ConsumeMessageEntr
 		handler = c.handlers[messageEntry.MessageTag]
 	}
 	err := handler(msg)
-	if err != nil {
+	if err == nil {
 		ackErr := c.c.AckMessage([]string{messageEntry.ReceiptHandle})
 		if ackErr != nil {
 			c.handleError(ackErr.(errors.ErrCode))
