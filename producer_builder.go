@@ -53,7 +53,7 @@ func (cfg *producerBuilder) Tag(value string) *producerBuilder {
 
 func (cfg *producerBuilder) Build() Producer {
 	client := mq_http_sdk.NewAliyunMQClient(cfg.endpoint, cfg.accessKey, cfg.secretKey, cfg.securityToken)
-	return rocketMQProducer{
+	return &rocketMQProducer{
 		p:      client.GetProducer(cfg.instanceID, cfg.topic),
 		msgTag: cfg.tag,
 	}
